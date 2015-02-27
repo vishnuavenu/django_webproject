@@ -1,0 +1,11 @@
+{% if category %}
+{% for c in category %}
+   {{c}}
+{% endfor %}
+<br/><br/>
+{% for pic in photoes %}
+<img src="{{ pic.image.thumb_url }}"  />
+{% endfor %}
+{% else %}
+<p>No Categories </p>
+{% endif %}

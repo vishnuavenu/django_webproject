@@ -1,0 +1,5 @@
+{% if category %}
+{% for c in category %}
+{{c}}
+{% else %}
+<p>
