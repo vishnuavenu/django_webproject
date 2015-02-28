@@ -21,9 +21,6 @@ class ThumbnailImageFieldFile(ImageFieldFile):
     thumb_url = property(_get_thumb_url)
 
     def save(self, name, content, save=True):
-        print "-----------------------------------------------------------------"
-        print "its invoked!", self.path, "\n+++++++++++++++++++++++++++++++"
-        print self.thumbpath
         super(ThumbnailImageFieldFile, self).save(name, content, save)
         img = Image.open(self.path)
         img.thumbnail(
@@ -70,11 +67,6 @@ class Photo(models.Model):
     image = ThumbnailImageField(upload_to="photogallery")
     caption = models.CharField(max_length=250, blank=True)
     
-    ''' 
-    def save(self, *args, **kwargs):
-        
-        return (Photo, self).save(*args, **kwargs)
-    '''
     class Meta:
         ordering = ['title', 'image']
         
